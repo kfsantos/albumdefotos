@@ -6,13 +6,13 @@
  * Time: 10:25
  */
 require_once("ende-banco.php");
-$id = $_POST['id'];
 $nome = $_POST['nome'];
 $data = $_POST['data'];
-
+$enderecoalbum = "C:/xampp/htdocs/albumdefotos/albuns/$nome";
 if (isset($nome)) {
-    inserirAlbum($conexao, $nome, $data);
-    mkdir("C:/xampp/htdocs/albumdefotos/albuns/$nome");
+    var_dump($enderecoalbum);
+    mkdir($enderecoalbum);
+    inserirAlbum($conexao, $nome, $data, $enderecoalbum);
     ?>
     <p class="text-success">O Album <?= $nome ?>, Foi Inserido com sucesso!</p>
 

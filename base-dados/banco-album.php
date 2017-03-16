@@ -7,11 +7,11 @@
  */
 require_once("conecta.php");
 
-function inserirAlbum($conexao, $nome, $data)
+function inserirAlbum($conexao, $nome, $data, $enderecoalbum)
 {
     $nome = mysqli_real_escape_string($conexao, $nome);
     $data = mysqli_real_escape_string($conexao, $data);
-    $query = "insert into album (nome, data) values ('{$nome}','{$data}')";
+    $query = "insert into album (nome, data, enderecoalbum) values ('{$nome}','{$data}', '{$enderecoalbum}')";
     return mysqli_query($conexao, $query);
 }
 
