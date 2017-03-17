@@ -7,11 +7,11 @@
  */
 require_once("conecta.php");
 
-function inserirAlbum($conexao, $nome, $data, $enderecoalbum)
+function inserirAlbum($conexao, $nome, $data, $enderecoalbum, $novonome)
 {
     $nome = mysqli_real_escape_string($conexao, $nome);
     $data = mysqli_real_escape_string($conexao, $data);
-    $query = "insert into album (nome, data, enderecoalbum) values ('{$nome}','{$data}', '{$enderecoalbum}')";
+    $query = "insert into album (nome, data, enderecoalbum, novonome) values ('{$nome}','{$data}', '{$enderecoalbum}','{$novonome}')";
     return mysqli_query($conexao, $query);
 }
 
@@ -35,13 +35,9 @@ function listarAlbum($conexao)
 
 function selecionarAlbum($conexao, $id)
 {
-    $albuns = array();
     $query = "SELECT * FROM album WHERE id = {$id}";
     $resultado = mysqli_query($conexao, $query);
-    while ($album = mysqli_fetch_assoc($resultado)) {
-        array_push($albuns, $album);
-    }
-    return $albuns;
+    return $album = mysqli_fetch_assoc($resultado);
 }
 
 function inserirFoto($conexao, $nomeImagem, $idalbum)

@@ -8,12 +8,9 @@
 require_once("ende-banco.php");
 $id = $_POST['id'];
 if (isset($id)) {
-    $albuns = selecionarAlbum($conexao, $id);
-
-    foreach ($albuns as $album):
-        $nome = $album['nome'];
-    endforeach;
-
+    $album = selecionarAlbum($conexao, $id);
+    $nome = $album['novonome'];
+    var_dump($nome);
     $diretorio = "C:/xampp/htdocs/albumdefotos/albuns/$nome";
     var_dump($diretorio);
     removerDiretorioAlbum($diretorio);
@@ -21,5 +18,5 @@ if (isset($id)) {
     ?>
     <p class="text-success">O Album <?= $nome ?>, Foi Removido com sucesso!</p>
     <?php
-    header("Location: http://localhost/albumdefotos/cadastrar-album.php");
+    header("Location: http://localhost/albumdefotos/formulario-album.php");
 }

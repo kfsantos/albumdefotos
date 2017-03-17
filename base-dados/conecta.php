@@ -6,3 +6,4 @@
  * Time: 08:09
  */
 $conexao = mysqli_connect("localhost", "exemplo", "exemplo", "exemplo");
+mysqli_set_charset($conexao,"utf8");

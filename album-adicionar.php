@@ -7,15 +7,16 @@
  */
 require_once("ende-banco.php");
 $nome = $_POST['nome'];
-$data = $_POST['data'];
-$enderecoalbum = "C:/xampp/htdocs/albumdefotos/albuns/$nome";
+$data = date('d-m-Y-H-i-s');
+$novonome = $nome.$data;
+$enderecoalbum = "C:/xampp/htdocs/albumdefotos/albuns/$novonome";
 if (isset($nome)) {
     var_dump($enderecoalbum);
     mkdir($enderecoalbum);
-    inserirAlbum($conexao, $nome, $data, $enderecoalbum);
+    inserirAlbum($conexao, $nome, $data, $enderecoalbum, $novonome);
     ?>
     <p class="text-success">O Album <?= $nome ?>, Foi Inserido com sucesso!</p>
 
     <?php
-    header("Location: http://localhost/albumdefotos/cadastrar-album.php");
+    header("Location: http://localhost/albumdefotos/formulario-album.php");
 }
