@@ -7,7 +7,7 @@
  */
 require_once("ende-cabecalho.php");
 require_once("ende-banco.php");
-$data = date('d-m-Y');
+
 ?>
 <div class="row">
     <div class="col-md-12" align="center">
@@ -18,7 +18,6 @@ $data = date('d-m-Y');
                 <tr>
                     <td>Nome:</td>
                     <td><input class="form-control" type="text" name="nome" required="required"></td>
-                    <td><input type="hidden" name="data" value="<?= $data ?>"></td>
                 </tr>
                 <tr>
                     <td>
@@ -50,6 +49,12 @@ $data = date('d-m-Y');
                         <form action="album-remover.php" method="post">
                             <input name="id" type="hidden" value="<?= $album['id'] ?>">
                             <button class="btn btn-primary" type="submit" style="text-align-all: center">Remover
+                            </button>
+                        </form>
+
+                        <form action="formulario-foto.php" method="post">
+                            <input name="id" type="hidden" value="<?= $album['id'] ?>">
+                            <button class="btn btn-primary" type="submit" style="text-align-all: center">Enviar foto
                             </button>
                         </form>
                     </td>
