@@ -14,7 +14,7 @@ require_once("ende-cabecalho.php");
             <br>
             <form action="foto-adicionar.php" enctype="multipart/form-data" method="post">
                 <input type="hidden" name="id" value="<?= $_POST['id']?>">
-                <input type="file" name="arquivo[]" multiple><br>
+                <input type="file" name="foto[]" multiple><br>
                 <input type="submit" value="Enviar">
             </form>
         </div>

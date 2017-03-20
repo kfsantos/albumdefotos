@@ -7,6 +7,9 @@
  */
 require_once("conecta.php");
 
+
+// ---------------------------------------------- A L B U M  D E  F O T O S ----------------------------------------------
+
 function inserirAlbum($conexao, $nome, $data, $enderecoalbum, $novonome)
 {
     $nome = mysqli_real_escape_string($conexao, $nome);
@@ -40,17 +43,6 @@ function selecionarAlbum($conexao, $id)
     return $album = mysqli_fetch_assoc($resultado);
 }
 
-function inserirFoto($conexao, $nomeImagem, $idalbum)
-{
-    $query = "INSERT INTO foto(endereco_url, album_id) values ('{$nomeImagem}', '{$idalbum}')";
-    return mysqli_query($conexao, $query);
-}
-
-function selecionarFotosAlbum($conexao, $id)
-{
-    $query = "SELECT * FROM foto WHERE id = '{$id}'";
-    return mysqli_query($conexao, $query);
-}
 
 function removerDiretorioAlbum($nome)
 {
@@ -60,4 +52,25 @@ function removerDiretorioAlbum($nome)
     endforeach;
     rmdir($nome);                                                       /* Finalmente remove a pasta*/
     return;
+}
+
+
+// ---------------------------------------------- F O T O S ----------------------------------------------
+
+function inserirFoto($conexao, $nome, $album_id)
+{
+    echo "<br>";
+    echo "Nome";
+    var_dump($nome);
+    echo "<br>";
+    echo "ID";
+    var_dump($album_id);
+    $query = "INSERT INTO foto (nome,album_id) values ('{$nome}', '{$album_id}')";
+    return mysqli_query($conexao, $query);
+}
+
+function selecionarFotosAlbum($conexao, $id)
+{
+    $query = "SELECT * FROM foto WHERE id = '{$id}'";
+    return mysqli_query($conexao, $query);
 }

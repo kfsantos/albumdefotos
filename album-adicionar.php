@@ -8,7 +8,7 @@
 require_once("ende-banco.php");
 $nome = $_POST['nome'];
 $data = date('d-m-Y-H-i-s');
-$novonome = $nome.$data;
+$novonome = $nome."-".$data;
 $enderecoalbum = "C:/xampp/htdocs/albumdefotos/albuns/$novonome";
 if (isset($nome)) {
     var_dump($enderecoalbum);
