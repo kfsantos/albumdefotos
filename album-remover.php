@@ -14,9 +14,11 @@ if (isset($id)) {
     $diretorio = "C:/xampp/htdocs/albumdefotos/albuns/$nome";
     var_dump($diretorio);
     removerDiretorioAlbum($diretorio);
+    removerFoto($conexao, $id);
     removerAlbum($conexao, $id);
+    
     ?>
     <p class="text-success">O Album <?= $nome ?>, Foi Removido com sucesso!</p>
     <?php
-    header("Location: http://localhost/albumdefotos/formulario-album.php");
+    //header("Location: http://localhost/albumdefotos/formulario-album.php");
 }

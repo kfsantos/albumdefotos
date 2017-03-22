@@ -13,6 +13,7 @@ $enderecoalbum = "C:/xampp/htdocs/albumdefotos/albuns/$novonome";
 if (isset($nome)) {
     var_dump($enderecoalbum);
     mkdir($enderecoalbum);
+    mkdir($enderecoalbum."/miniatura");
     inserirAlbum($conexao, $nome, $data, $enderecoalbum, $novonome);
     ?>
     <p class="text-success">O Album <?= $nome ?>, Foi Inserido com sucesso!</p>

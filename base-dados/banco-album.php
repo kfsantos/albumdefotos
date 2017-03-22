@@ -44,13 +44,19 @@ function selecionarAlbum($conexao, $id)
 }
 
 
-function removerDiretorioAlbum($nome)
+function removerDiretorioAlbum($diretorio)
 {
-    $files = glob($nome . '/*.*');                                      /* Carrega os arquivos do Diretório*/
+    $files = glob($diretorio . "/miniatura/*.*");                                         /* Carrega os arquivos do Diretório*/
     foreach ($files as $file):
-        is_dir($file) ? removerDiretorio($file) : unlink($file);        /* Remove arquivo um a um Diretório*/
+        is_dir($file) ? removerDiretorio($file) : unlink($file);                          /* Remove arquivo um a um Diretório*/
     endforeach;
-    rmdir($nome);                                                       /* Finalmente remove a pasta*/
+    rmdir($diretorio."/miniatura");                                                       /* Finalmente remove a pasta*/
+    
+    $files = glob($diretorio . "/*.*");                                                   /* Carrega os arquivos do Diretório*/
+    foreach ($files as $file):
+        is_dir($file) ? removerDiretorio($file) : unlink($file);                         /* Remove arquivo um a um Diretório*/
+    endforeach;
+    rmdir($diretorio);                                                                  /* Finalmente remove a pasta*/
     return;
 }
 
@@ -73,4 +79,11 @@ function selecionarFotosAlbum($conexao, $id)
 {
     $query = "SELECT * FROM foto WHERE id = '{$id}'";
     return mysqli_query($conexao, $query);
+}
+
+function removerFoto($conexao, $id)
+{
+    $query = "DELETE FROM foto WHERE album_id = '{$id}'";
+    return mysqli_query($conexao, $query);
+
 }
