@@ -36,21 +36,21 @@ foreach ($_FILES["foto"]["error"] as $key => $error) {
         //Extensoes enfileiradas para comparar com o arquivo vindo do formulario
         if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
             if (inserirFoto($conexao, $novonome, $album_id)) {             
-                move_uploaded_file($tmp_name, $endereco . "/" . $novonome);
+                move_uploaded_file($tmp_name, $endereco . "/temporario/" . $novonome);
                 redimencionarminiatura($conexao,$endereco, $novonome);
             } else {
                 $msg = mysqli_error($conexao); ?>
                 <p class="text - danger">O produto <?= $name ?> não foi adicionado: <?= $msg ?></p>
                 <?php
             }
+
+        } else {
+            echo "<br>";
+            echo "Extensão inválida!";
         }
-
-    } else {
-        echo "<br>";
-        echo "Extensão inválida!";
     }
-
 }
+removerPastaTemporaria($endereco);
 
 
 

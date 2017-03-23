@@ -46,11 +46,11 @@ function selecionarAlbum($conexao, $id)
 
 function removerDiretorioAlbum($diretorio)
 {
-    $files = glob($diretorio . "/miniatura/*.*");                                         /* Carrega os arquivos do Diretório*/
+    $files = glob($diretorio . "/temporario/*.*");                                         /* Carrega os arquivos do Diretório*/
     foreach ($files as $file):
         is_dir($file) ? removerDiretorio($file) : unlink($file);                          /* Remove arquivo um a um Diretório*/
     endforeach;
-    rmdir($diretorio."/miniatura");                                                       /* Finalmente remove a pasta*/
+    rmdir($diretorio."/temporario");                                                       /* Finalmente remove a pasta*/
     
     $files = glob($diretorio . "/*.*");                                                   /* Carrega os arquivos do Diretório*/
     foreach ($files as $file):
@@ -58,6 +58,14 @@ function removerDiretorioAlbum($diretorio)
     endforeach;
     rmdir($diretorio);                                                                  /* Finalmente remove a pasta*/
     return;
+}
+
+function removerPastaTemporaria($diretorio){
+    $files = glob($diretorio . "/temporario/*.*");                                         /* Carrega os arquivos do Diretório*/
+    foreach ($files as $file):
+        is_dir($file) ? removerDiretorio($file) : unlink($file);                          /* Remove arquivo um a um Diretório*/
+    endforeach;
+                                                          /* Finalmente remove a pasta*/
 }
 
 
