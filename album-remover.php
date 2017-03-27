@@ -11,7 +11,7 @@ if (isset($id)) {
     $album = selecionarAlbum($conexao, $id);
     $nome = $album['novonome'];
     var_dump($nome);
-    $diretorio = "C:/xampp/htdocs/albumdefotos/albuns/$nome";
+    $diretorio = "../albumdefotos/albuns/$nome";
     var_dump($diretorio);
     removerDiretorioAlbum($diretorio);
     removerFoto($conexao, $id);

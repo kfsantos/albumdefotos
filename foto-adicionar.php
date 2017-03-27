@@ -37,7 +37,8 @@ foreach ($_FILES["foto"]["error"] as $key => $error) {
         if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
             if (inserirFoto($conexao, $novonome, $album_id)) {             
                 move_uploaded_file($tmp_name, $endereco . "/temporario/" . $novonome);
-                redimencionarminiatura($conexao,$endereco, $novonome);
+                redimensionarimagem($conexao,$endereco, $novonome);
+                redimensionarthumbnail($conexao,$endereco, $novonome);
             } else {
                 $msg = mysqli_error($conexao); ?>
                 <p class="text - danger">O produto <?= $name ?> não foi adicionado: <?= $msg ?></p>

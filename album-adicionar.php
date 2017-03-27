@@ -9,11 +9,12 @@ require_once("ende-banco.php");
 $nome = $_POST['nome'];
 $data = date('d-m-Y-H-i-s');
 $novonome = $nome."-".$data;
-$enderecoalbum = "C:/xampp/htdocs/albumdefotos/albuns/$novonome";
+$enderecoalbum = "../albumdefotos/albuns/$novonome";
 if (isset($nome)) {
     var_dump($enderecoalbum);
     mkdir($enderecoalbum);
     mkdir($enderecoalbum."/temporario");
+    mkdir($enderecoalbum."/thumbnail");
     inserirAlbum($conexao, $nome, $data, $enderecoalbum, $novonome);
     ?>
     <p class="text-success">O Album <?= $nome ?>, Foi Inserido com sucesso!</p>

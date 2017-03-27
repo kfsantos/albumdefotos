@@ -28,7 +28,7 @@ function removerAlbum($conexao, $id)
 function listarAlbum($conexao)
 {
     $albuns = array();
-    $query = "SELECT * FROM album";
+    $query = "SELECT * FROM album order by data asc";
     $resultado = mysqli_query($conexao, $query);
     while ($album = mysqli_fetch_assoc($resultado)) {
         array_push($albuns, $album);
@@ -46,6 +46,12 @@ function selecionarAlbum($conexao, $id)
 
 function removerDiretorioAlbum($diretorio)
 {
+    $files = glob($diretorio . "/thumbnail/*.*");                                         /* Carrega os arquivos do Diretório*/
+    foreach ($files as $file):
+        is_dir($file) ? removerDiretorio($file) : unlink($file);                          /* Remove arquivo um a um Diretório*/
+    endforeach;
+    rmdir($diretorio."/thumbnail");  
+
     $files = glob($diretorio . "/temporario/*.*");                                         /* Carrega os arquivos do Diretório*/
     foreach ($files as $file):
         is_dir($file) ? removerDiretorio($file) : unlink($file);                          /* Remove arquivo um a um Diretório*/
@@ -67,6 +73,8 @@ function removerPastaTemporaria($diretorio){
     endforeach;
                                                           /* Finalmente remove a pasta*/
 }
+
+
 
 
 // ---------------------------------------------- F O T O S ----------------------------------------------
