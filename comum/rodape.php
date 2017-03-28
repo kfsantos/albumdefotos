@@ -7,10 +7,11 @@
  */?>
 </div>
 
-<script src = "js/jquery.js" ></script >
-<script src = "js/jquery.min.js" ></script >
-<script src = "js/bootstrap.js" ></script >
 </div >
-Rodapé
+<footer>
+	<h4 align="center">
+		Rodapé
+	</h4>
+</footer>
 </body >
 </html >

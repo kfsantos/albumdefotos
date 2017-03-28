@@ -57,7 +57,7 @@ require_once("ende-banco.php");
                             <button class="btn btn-primary" type="submit" style="text-align-all: center">Enviar foto
                             </button>
                         </form>
-                        <form action="fotos-por-album.php" method="post">
+                        <form action="visualizar-fotos.php" method="post">
                             <input name="id" type="hidden" value="<?= $album['id'] ?>">
                             <button class="btn btn-primary" type="submit" style="text-align-all: center">Visualizar Álbum
                             </button>
