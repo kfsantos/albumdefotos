@@ -15,6 +15,9 @@ while( $nome != false ){
     }
     $nome = readdir($d);
 }
+if(!$arquivos){
+    header("Location: formulario-album.php");
+}
 sort($arquivos);
 
 ?>

@@ -13,7 +13,7 @@ require_once("ende-banco.php");
     <div class="col-md-12" align="center">
         <h2 class="text-center">Formulário de Cadastro de Álbum</h2>
         <br>
-        <table class="table" style="width: 60%">
+        <table class="table" style="width: 65%">
             <form action="album-adicionar.php" method="post">
                 <tr>
                     <td>Nome:</td>
@@ -27,13 +27,13 @@ require_once("ende-banco.php");
             </form>
         </table>
         <br>
-        <table class="table table-bordered" style="width: 60%">
+        <table class="table table-bordered" style="width: 65%" >
             <thead>
             <tr class="text-center">
                 <td>Nº</td>
                 <td>Nome</td>
                 <td>Data</td>
-                <td>Ação</td>
+                <td colspan="3">Ação</td>
             </tr>
             </thead>
             <tbody>
@@ -45,22 +45,23 @@ require_once("ende-banco.php");
                     <td><?= $album['id'] ?></td>
                     <td><?= $album['nome'] ?></td>
                     <td><?= $album['data'] ?></td>
-                    <td>
+                    <td> 
                         <form action="album-remover.php" method="post">
-                            <input name="id" type="hidden" value="<?= $album['id'] ?>">
-                            <button class="btn btn-primary" type="submit" style="text-align-all: center">Remover
-                            </button>
+                            <input name="id" type="hidden" value="<?= $album['id'] ?>">                            
+<!--     Função Onclick com duas funções, onde chama a confirmação e caso seja verdadeiro, executa a esclusão do registro       -->
+                            <input type="image" src="./comum/fechar.png" width="25" height="25" onClick="return (confirm('Deseja realmente EXCLUIR o álbum <?= $album['nome']?> ?') && this.form.submit())" title="Excluir Álbum">
                         </form>
-
+                        </td>
+                        <td>
                         <form action="formulario-foto.php" method="post">
                             <input name="id" type="hidden" value="<?= $album['id'] ?>">
-                            <button class="btn btn-primary" type="submit" style="text-align-all: center">Enviar foto
-                            </button>
+                            <input type="image" src="./comum/enviar.png" width="25" height="25" onClick="this.form.submit()" title="Inserir Foto">
                         </form>
+                        </td>
+                        <td>
                         <form action="visualizar-fotos.php" method="post">
                             <input name="id" type="hidden" value="<?= $album['id'] ?>">
-                            <button class="btn btn-primary" type="submit" style="text-align-all: center">Visualizar Álbum
-                            </button>
+                            <input type="image" src="./comum/visualizar.png" width="25" height="25" onClick="this.form.submit()" title="Visualizar Fotos">
                         </form>
                     </td>
                 </tr>
