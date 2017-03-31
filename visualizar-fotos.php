@@ -16,7 +16,10 @@ while( $nome != false ){
     $nome = readdir($d);
 }
 if(!$arquivos){
-    header("Location: formulario-album.php");
+    echo "<script> alert('O Álbum não possui fotos!') </script> ";
+    header( "refresh: 0; url= formulario-album.php" );
+    
+    
 }
 sort($arquivos);
 

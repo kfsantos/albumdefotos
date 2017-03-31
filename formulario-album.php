@@ -48,7 +48,7 @@ require_once("ende-banco.php");
                     <td> 
                         <form action="album-remover.php" method="post">
                             <input name="id" type="hidden" value="<?= $album['id'] ?>">                            
-<!--     Função Onclick com duas funções, onde chama a confirmação e caso seja verdadeiro, executa a esclusão do registro       -->
+<!--     Função Onclick com duas funções, onde chama a confirmação e caso seja verdadeiro, executa a exclusão do registro       -->
                             <input type="image" src="./comum/fechar.png" width="25" height="25" onClick="return (confirm('Deseja realmente EXCLUIR o álbum <?= $album['nome']?> ?') && this.form.submit())" title="Excluir Álbum">
                         </form>
                         </td>

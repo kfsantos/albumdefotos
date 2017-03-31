@@ -20,5 +20,6 @@ if (isset($id)) {
     ?>
     <p class="text-success">O Album <?= $nome ?>, Foi Removido com sucesso!</p>
     <?php
-    //header("Location: http://localhost/albumdefotos/formulario-album.php");
+    header("Location: /albumdefotos/formulario-album.php");
+    die();
 }
