@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Sistema de Álbum de Fotos</title>
     <link href="./css/bootstrap.css" rel="stylesheet">
     	

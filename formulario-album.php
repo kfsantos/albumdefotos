@@ -49,19 +49,19 @@ require_once("ende-banco.php");
                         <form action="album-remover.php" method="post">
                             <input name="id" type="hidden" value="<?= $album['id'] ?>">                            
 <!--     Função Onclick com duas funções, onde chama a confirmação e caso seja verdadeiro, executa a exclusão do registro       -->
-                            <input type="image" src="./comum/fechar.png" width="25" height="25" onClick="return (confirm('Deseja realmente EXCLUIR o álbum <?= $album['nome']?> ?') && this.form.submit())" title="Excluir Álbum">
+                            <input type="image" src="./img/fechar.png" width="25" height="25" onClick="return (confirm('Deseja realmente EXCLUIR o álbum <?= $album['nome']?> ?') && this.form.submit())" title="Excluir Álbum">
                         </form>
                         </td>
                         <td>
                         <form action="formulario-foto.php" method="post">
                             <input name="id" type="hidden" value="<?= $album['id'] ?>">
-                            <input type="image" src="./comum/enviar.png" width="25" height="25" onClick="this.form.submit()" title="Inserir Foto">
+                            <input type="image" src="./img/enviar.png" width="25" height="25" onClick="this.form.submit()" title="Inserir Foto">
                         </form>
                         </td>
                         <td>
                         <form action="visualizar-fotos.php" method="post">
                             <input name="id" type="hidden" value="<?= $album['id'] ?>">
-                            <input type="image" src="./comum/visualizar.png" width="25" height="25" onClick="this.form.submit()" title="Visualizar Fotos">
+                            <input type="image" src="./img/visualizar.png" width="25" height="25" onClick="this.form.submit()" title="Visualizar Fotos">
                         </form>
                     </td>
                 </tr>
